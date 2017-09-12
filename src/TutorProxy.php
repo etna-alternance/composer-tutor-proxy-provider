@@ -22,8 +22,8 @@ class TutorProxy implements ServiceProviderInterface
     public function register(Container $app)
     {
         $app["tutor_proxy"] = function ($app) {
-            $conversation_api_url = getenv("TUTOR_API_URL");
-            if (false === $conversation_api_url) {
+            $tutor_api_url = getenv("TUTOR_API_URL");
+            if (false === $tutor_api_url) {
                 throw new \Exception("TutorProxyProvider needs env var TUTOR_API_URL");
             }
             if (false === getenv("TRUSTED_DOMAIN")) {
@@ -31,7 +31,7 @@ class TutorProxy implements ServiceProviderInterface
             }
 
             return new Client([
-                "base_uri" => $conversation_api_url
+                "base_uri" => $tutor_api_url
             ]);
         };
 

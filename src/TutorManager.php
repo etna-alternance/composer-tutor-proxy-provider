@@ -33,7 +33,7 @@ class TutorManager
         $method = strtoupper($method);
 
         if (false === in_array($method, ["GET", "POST", "PUT", "DELETE", "OPTIONS"])) {
-            return $this->app->abort(405, "ConversationProxy can not fire request of method : {$method}");
+            return $this->app->abort(405, "TutorProxy can not fire request of method : {$method}");
         }
 
         $domain = getenv("TRUSTED_DOMAIN");
@@ -44,6 +44,7 @@ class TutorManager
                 "cookies" => $jar,
                 "json"    => $body
             ]);
+
             return json_decode($response->getBody(), true);
         } catch (\GuzzleHttp\Exception\RequestException $client_error) {
             return $this->app->abort(

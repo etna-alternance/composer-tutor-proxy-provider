@@ -49,7 +49,7 @@ class TutorManager
         } catch (\GuzzleHttp\Exception\RequestException $client_error) {
             return $this->app->abort(
                 $client_error->getResponse()->getStatusCode(),
-                $client_error->getResponse()->getReasonPhrase()
+                json_decode($client_error->getResponse()->getBody(), true)
             );
         }
     }

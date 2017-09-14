@@ -9,13 +9,6 @@ use Pimple\ServiceProviderInterface;
 
 class TutorProxy implements ServiceProviderInterface
 {
-    private $controller_instance = null;
-
-    public function __construct($controller_instance = null)
-    {
-        $this->controller_instance = $controller_instance;
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -38,7 +31,5 @@ class TutorProxy implements ServiceProviderInterface
         $app["tutor"] = function ($app) {
             return new TutorManager($app);
         };
-
-        $app->mount("/", $this->controller_instance);
     }
 }

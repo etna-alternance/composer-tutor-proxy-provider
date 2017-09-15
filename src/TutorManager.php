@@ -2,8 +2,6 @@
 
 namespace ETNA\Silex\Provider\TutorProxy;
 
-use Guzzle\Http\Message\Request as GuzzleRequest;
-
 use GuzzleHttp\Cookie\CookieJar;
 use Silex\Application;
 

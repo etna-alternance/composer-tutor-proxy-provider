@@ -28,18 +28,14 @@ Modifier `composer.json` :
 Le composant `etna/config-provider` met à disposition une classe permettant de faire utiliser ce proxy a notre application.
 
 ```
-use ETNA\Silex\Provider\Config as ETNAConf;
+use ETNA\Silex\Provider as ETNAProvider;
 
 class EtnaConfig implements ServiceProviderInterface
 {
     public function register(Application $app)
     {
         ...
-
-        //L'utilisation du controlleur custom est expliquée plus bas
-        $controller = new Controllers\ConversationController();
-        $app->register(new ETNAProvider\ConversationProxy\ConversationProxy($controller));
-
+        $app->register(new ETNAProvider\TutorProxy\TutorProxy());
         ...
     }
 }

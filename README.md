@@ -40,3 +40,23 @@ class EtnaConfig implements ServiceProviderInterface
     }
 }
 ```
+
+Il faut également ajouter dans l'env les adresses respectives de l'intra-tuteur-api.
+```
+Dev env:
+    putenv("TUTOR_API_URL=http://intra-tuteur-api.etna.dev");
+
+prod env:
+    putenv("TUTOR_API_URL=http://intra-tuteur-api.etna-alternance.net");
+
+test env:
+    putenv("TUTOR_API_URL=http://127.0.0.1");
+```
+
+Pour faire appel à une méthode du proxy utilisez:
+```
+    $app["tutor"]->ma_méthode();
+```
+
+la route de l'api intra tuteur peut être appelée en faisait
+`$app->["tutor_proxy"]`

@@ -21,7 +21,7 @@ class TutorManager
 
     public function checkContact($contact, $student)
     {
-        $response = $this->fireRequest("GET", "/{$contact}/student/{$student}");
+        $response = $this->fireRequest("GET", "/{$contact}/students/{$student}");
 
         return $response;
     }
